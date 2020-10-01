@@ -1,0 +1,22 @@
+//            MSGCLASS=H,                            
+//            MSGLEVEL=(1,1),                        
+//            REGION=8192K                           
+//MOVE01 EXEC PGM=IEBCOPY                            
+//SYSPRINT DD SYSOUT=*                               
+//SYSIN    DD DUMMY                                  
+//*           RENAME DATASET BELOW                   
+//SYSUT1   DD DSN=HERC01.KICKS.V1R5M0.BIGPDS,        
+//*           RENAME DATASET BELOW                   
+//            DISP=SHR                               
+//SYSUT2   DD DSN=CICS01.KICKS.V1R5M0.BIGPDS,        
+//            DISP=(NEW,CATLG,DELETE),               
+//*           RENAME VOLUME BELOW IF NECESSARY       
+//            VOL=SER=MOVEDS,                        
+//            UNIT=SYSDA,                            
+//*           MAKE BIGGER OR SMALLER SPACE IF NEEDED 
+//            VOL=SER=MOVEDS,                       
+//            UNIT=SYSDA,                           
+//*           MAKE BIGGER OR SMALLER SPACE IF NEEDED
+//            SPACE=(TRK,(300,60,20)),              
+//            DCB=(RECFM=FB,LRECL=80,BLKSIZE=3200)
+//                                                
